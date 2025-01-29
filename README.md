@@ -1,4 +1,6 @@
 
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -32,6 +34,7 @@
       border: none;
       border-radius: 5px;
       cursor: pointer;
+      margin: 5px;
     }
     button:hover {
       background-color: #ff8c00;
@@ -49,8 +52,10 @@
 </head>
 <body>
   <h1>Silly Story Generator</h1>
-  <p>Enter a name (optional) and click the button to generate a random silly story!</p>
+  <p>Enter a name or click "Random Name" to generate a random one!</p>
   <input type="text" id="nameInput" placeholder="Enter a name...">
+  <button onclick="setRandomName()">Random Name</button>
+  <br>
   <div id="story">Your silly story will appear here!</div>
   <button onclick="generateStory()">Generate Story</button>
 
@@ -58,9 +63,14 @@
     const characters = ['a talking banana', 'a sleepy dragon', 'a dancing robot', 'a mischievous cat', 'a clumsy wizard'];
     const actions = ['won a dance competition', 'ate 100 pancakes', 'invented a flying car', 'fell into a mud puddle', 'tried to juggle flamingos'];
     const locations = ['on the moon', 'in a magical forest', 'at the bottom of the ocean', 'inside a volcano', 'at a spooky haunted house'];
+    const randomNames = ['Charlie', 'Sam', 'Olivia', 'Max', 'Luna', 'Jack', 'Sophia', 'Leo', 'Emma', 'Milo'];
 
     function getRandomElement(arr) {
       return arr[Math.floor(Math.random() * arr.length)];
+    }
+
+    function setRandomName() {
+      document.getElementById("nameInput").value = getRandomElement(randomNames);
     }
 
     function generateStory() {
