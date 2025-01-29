@@ -1,5 +1,3 @@
-# Silly_Story
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -38,11 +36,21 @@
     button:hover {
       background-color: #ff8c00;
     }
+    input {
+      padding: 8px;
+      font-size: 16px;
+      margin-bottom: 10px;
+      width: 200px;
+      text-align: center;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
   </style>
 </head>
 <body>
   <h1>Silly Story Generator</h1>
-  <p>Click the button to generate a random silly story!</p>
+  <p>Enter a name (optional) and click the button to generate a random silly story!</p>
+  <input type="text" id="nameInput" placeholder="Enter a name...">
   <div id="story">Your silly story will appear here!</div>
   <button onclick="generateStory()">Generate Story</button>
 
@@ -56,12 +64,12 @@
     }
 
     function generateStory() {
+      const nameInput = document.getElementById("nameInput").value.trim();
+      const name = nameInput || "Alex"; // Default name if none is entered
       const character = getRandomElement(characters);
       const action = getRandomElement(actions);
       const location = getRandomElement(locations);
-
-      const story = `One day, ${character} ${action} ${location}. It was the silliest thing anyone had ever seen!`;
-      document.getElementById('story').textContent = story;
+      document.getElementById("story").innerText = `${name} met ${character} who ${action} ${location}!`;
     }
   </script>
 </body>
